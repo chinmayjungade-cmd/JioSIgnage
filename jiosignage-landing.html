@@ -200,7 +200,7 @@
   .stage.is-hover .screen{transition:transform .12s linear,box-shadow .4s ease;box-shadow:0 30px 80px rgba(53,53,243,.35),0 0 0 1px rgba(153,153,255,.35)}
   .hs-base,.hs-tiles{position:absolute;inset:0}
   .hs-base img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%}
-  .hs-base img.kb{animation:hsKenBurns 7s ease-out forwards}
+  .hs-base img.kb{animation:hsKenBurns 5s ease-out forwards}
   @keyframes hsKenBurns{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.2%,-.8%)}}
   .hs-tiles{z-index:1;pointer-events:none}
   .hs-tile{position:absolute;background-repeat:no-repeat;backface-visibility:hidden;will-change:transform,opacity}
@@ -1036,7 +1036,7 @@
       {src:'images/hero/entrance-arch.webp',   cap:'FASHION • ENTRANCE ARCH'},
       {src:'images/hero/outdoor-kiosk.webp',   cap:'HOSPITALITY • OUTDOOR KIOSK'}
     ];
-    var HOLD=4200, COLS=8, ROWS=5, IMG_RATIO=16/9;
+    var HOLD=3000, COLS=8, ROWS=5, IMG_RATIO=16/9;
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var canAnimate=!!Element.prototype.animate&&!reduce;
     var cur=0, busy=false, paused=false, elapsed=0, last=null, pattern=0;
@@ -1065,6 +1065,7 @@
     function go(next){
       if(busy) return;
       var sl=SLIDES[next];
+      cur=next; elapsed=0; paintBars(0);
       if(!canAnimate){ img.src=sl.src; setCap(next); finish(next); return; }
       busy=true; setCap(next);
       var W=screen.clientWidth,H=screen.clientHeight;
@@ -1099,17 +1100,16 @@
       cap.classList.remove('swap'); void cap.offsetWidth; cap.classList.add('swap');
     }
     function finish(next){
-      cur=next; busy=false; elapsed=0;
-      kenBurns(); paintBars(0);
+      busy=false; kenBurns();
     }
 
     // timeline (pauses on hover and when the tab is hidden)
     function tick(ts){
       if(last===null) last=ts;
       var dt=ts-last; last=ts;
-      if(!paused&&!busy&&!document.hidden){
+      if(!paused&&!document.hidden){
         elapsed+=dt; paintBars(Math.min(elapsed/HOLD,1));
-        if(elapsed>=HOLD) go((cur+1)%SLIDES.length);
+        if(elapsed>=HOLD&&!busy) go((cur+1)%SLIDES.length);
       }
       requestAnimationFrame(tick);
     }
