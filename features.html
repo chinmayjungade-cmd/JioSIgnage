@@ -482,6 +482,8 @@
   .deep-list .ck{width:26px;height:26px;flex:none;border-radius:50%;background:var(--sparkle-20);display:grid;place-items:center;color:var(--sparkle-60);margin-top:1px}
   .deep-list .ck svg{width:16px;height:16px}
   .deep-visual{border-radius:var(--r-card);padding:30px;min-height:300px;border:1px solid var(--grey-40);background:#fff;box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:14px;justify-content:center}
+  .deep-visual--shot{padding:0;min-height:0;overflow:hidden;display:block}
+  .deep-visual--shot img{display:block;width:100%;height:auto}
   .dv-top{display:flex;align-items:center;gap:12px}
   .dv-ic{width:48px;height:48px;flex:none;border-radius:14px;display:grid;place-items:center}
   .dv-ic svg{width:26px;height:26px}
@@ -600,9 +602,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Directly publish from editor to selected screens</li>
         </ul>
       </div>
-      <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><div><b>Layout editor</b><small>Multi-zone canvas</small></div></div>
-        <div class="dv-zones"><div class="z1"></div><div class="z2"></div><div class="z3"></div></div>
+      <div class="deep-visual deep-visual--shot" data-reveal data-delay="1">
+        <img src="images/features/content-editor.webp" alt="JioSignage content editor with media library, canvas and properties panel" width="2000" height="1294" loading="lazy" />
       </div>
     </div>
 
@@ -617,10 +618,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Preview schedule before publishing</li>
         </ul>
       </div>
-      <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-sparkle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Day-parting</b><small>Auto-switching playlist</small></div></div>
-        <div class="dv-slots"><div class="dv-slot">Morning</div><div class="dv-slot on">Noon</div><div class="dv-slot">Evening</div><div class="dv-slot">Night</div></div>
-        <div class="dv-bar" style="width:58%"></div>
+      <div class="deep-visual deep-visual--shot" data-reveal data-delay="1">
+        <img src="images/features/scheduling.webp" alt="JioSignage schedule list showing active and expired schedules" width="2000" height="1228" loading="lazy" />
       </div>
     </div>
 
@@ -635,10 +634,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Status indicators in the portal for offline devices</li>
         </ul>
       </div>
-      <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></div><div><b>Offline resilience</b><small>Local cache active</small></div></div>
-        <div class="dv-row"><span class="s" style="background:var(--secondary-50)"></span>Network offline — screen still playing</div>
-        <div class="dv-row"><span class="s" style="background:var(--success-50)"></span>Cache 82% synced · auto-resume on reconnect</div>
+      <div class="deep-visual deep-visual--shot" data-reveal data-delay="1">
+        <img src="images/features/display-offline.webp" alt="JioSignage display list showing online, offline and unassigned screens" width="2000" height="1228" loading="lazy" />
       </div>
     </div>
 
@@ -653,10 +650,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Audit log of all emergency broadcasts</li>
         </ul>
       </div>
-      <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z"/><path d="M12 10v4M12 17h.01"/></svg>Emergency broadcast — all screens</div>
-        <div class="dv-row"><span class="s" style="background:var(--error-50)"></span>Overriding 1,260 screens instantly</div>
-        <div class="dv-row"><span class="s" style="background:var(--success-50)"></span>Auto-resume normal playlist after alert</div>
+      <div class="deep-visual deep-visual--shot" data-reveal data-delay="1">
+        <img src="images/features/emergency-alert.webp" alt="JioSignage editor with an earthquake emergency alert on the canvas" width="2000" height="1294" loading="lazy" />
       </div>
     </div>
 
@@ -671,14 +666,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Approval pipeline: expiring, pending and approved content</li>
         </ul>
       </div>
-      <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></div><div><b>Network overview</b><small>Live · pan-India</small></div></div>
-        <div class="dv-tiles">
-          <div class="dv-tile"><div class="t">Online</div><div class="v" style="color:var(--success-50)">1,248</div></div>
-          <div class="dv-tile"><div class="t">Offline</div><div class="v" style="color:#8a3b00">12</div></div>
-          <div class="dv-tile"><div class="t">Storage used</div><div class="v">68%</div></div>
-          <div class="dv-tile"><div class="t">Licenses</div><div class="v">92%</div></div>
-        </div>
+      <div class="deep-visual deep-visual--shot" data-reveal data-delay="1">
+        <img src="images/features/dashboard.webp" alt="JioSignage dashboard with display status, storage, licenses and a statewise India map" width="2000" height="1294" loading="lazy" />
       </div>
     </div>
 
