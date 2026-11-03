@@ -793,5 +793,46 @@
   }
 })();
 </script>
+<script>
+/* Smooth open/close for FAQ accordions (height + fade). Skipped when the user prefers reduced motion. */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !Element.prototype.animate) return;
+  var DURATION = 320, EASE = 'cubic-bezier(.4,0,.2,1)';
+  document.querySelectorAll('.faq-doc details.ac').forEach(function(d){
+    var summary = d.querySelector('summary'), body = d.querySelector('.answer');
+    var anim = null, state = 'idle';
+    function edge(){ return parseFloat(getComputedStyle(d).borderBottomWidth) || 0; }
+    function run(from, to, opening){
+      if (anim) anim.cancel();
+      d.style.overflow = 'hidden';
+      anim = d.animate({height:[from + 'px', to + 'px']}, {duration:DURATION, easing:EASE});
+      body.animate({opacity: opening ? [0, 1] : [1, 0]}, {duration:DURATION, easing:EASE, fill:'forwards'})
+          .onfinish = function(){ this.cancel(); };
+      anim.onfinish = function(){ finish(opening); };
+    }
+    function finish(open){
+      d.open = open; anim = null; state = 'idle';
+      d.style.height = ''; d.style.overflow = '';
+    }
+    summary.addEventListener('click', function(e){
+      e.preventDefault();
+      var start = d.offsetHeight;
+      if (state === 'closing' || !d.open) {
+        state = 'opening';
+        d.style.height = start + 'px';
+        d.open = true;
+        requestAnimationFrame(function(){
+          run(start, summary.offsetHeight + body.offsetHeight + edge(), true);
+        });
+      } else {
+        state = 'closing';
+        run(start, summary.offsetHeight + edge(), false);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
