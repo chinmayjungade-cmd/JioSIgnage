@@ -296,21 +296,21 @@
   .why-feat p{font-size:14px;opacity:.8;font-weight:500}
 
   /* Platform capabilities */
-  .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .cap-list{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
-  .cap-item{display:flex;gap:12px}
-  .cap-item .ck{width:28px;height:28px;flex:none;border-radius:50%;background:var(--sparkle-20);display:grid;place-items:center;color:var(--sparkle-60)}
-  .cap-item .ck svg{width:18px;height:18px}
-  .cap-item h4{font-size:16px;font-weight:800;margin-bottom:2px}
-  .cap-item p{font-size:14px;color:var(--grey-80);font-weight:500}
-  .cap-visual{border-radius:var(--r-card);background:var(--grey-20);border:1px solid var(--grey-40);padding:28px;display:grid;gap:14px}
-  .cap-bar{background:#fff;border:1px solid var(--grey-40);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px}
-  .cap-bar .lg{width:44px;height:44px;flex:none;border-radius:12px;background:var(--primary-20);display:grid;place-items:center;color:var(--primary-60)}
-  .cap-bar .lg svg{width:24px;height:24px}
-  .cap-bar b{font-size:15px}
-  .cap-bar small{display:block;color:var(--grey-80);font-weight:500;font-size:13px}
-  .cap-bar .meter{margin-left:auto;width:120px;height:8px;border-radius:250px;background:var(--grey-40);overflow:hidden}
-  .cap-bar .meter i{display:block;height:100%;background:var(--primary-50);border-radius:250px}
+  .podcast{max-width:880px;margin:0 auto}
+  .podcast-video{position:relative;display:block;aspect-ratio:16/9;border-radius:var(--r-card);overflow:hidden;background:var(--grey-100);box-shadow:var(--shadow-lg);isolation:isolate}
+  .podcast-video img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .podcast-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,20,0) 45%,rgba(0,0,20,.72));pointer-events:none}
+  .podcast-video:hover img{transform:scale(1.03)}
+  .podcast-play{position:absolute;left:50%;top:50%;z-index:1;width:88px;height:88px;margin:-44px 0 0 -44px;border-radius:250px;background:var(--primary-50);color:var(--inverse);display:grid;place-items:center;box-shadow:0 12px 32px rgba(0,0,40,.35);transition:background .2s,color .2s,transform .2s}
+  .podcast-play svg{width:36px;height:36px;margin-left:4px}
+  .podcast-video:hover .podcast-play{background:var(--primary-30);color:var(--primary-70);transform:scale(1.06)}
+  .podcast-video:active .podcast-play{background:var(--primary-60);color:var(--inverse)}
+  .podcast-cap{position:absolute;left:28px;bottom:24px;right:28px;z-index:1;color:var(--inverse)}
+  .podcast-cap b{display:block;font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .podcast-cap small{display:block;font-size:14px;font-weight:500;opacity:.85}
+  .podcast-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .podcast-video.playing::after,.podcast-video.playing .podcast-cap,.podcast-video.playing .podcast-play{display:none}
+  .podcast-actions{text-align:center;margin-top:36px}
 
   /* Device compatibility — table */
   .device-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
@@ -443,7 +443,7 @@
     .mobile-panel.open{transform:none;opacity:1;pointer-events:auto}
     .mobile-panel a:not(.btn){display:block;color:#fff;font-weight:700;font-size:17px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.14)}
     .mobile-panel .btn{width:100%;margin-top:16px}
-    .hero-grid,.grid-3,.grid-2,.cap-grid,.cap-list,.flow,.ben-grid,.screens{grid-template-columns:1fr}
+    .hero-grid,.grid-3,.grid-2,.flow,.ben-grid,.screens{grid-template-columns:1fr}
     .flow-node:not(:last-child)::after{display:none}
     .hero{padding:56px 0 72px}
     .chip.live{left:0}
@@ -775,26 +775,22 @@
   </div>
 </section>
 
-<!-- ============================= PLATFORM CAPABILITIES ============================= -->
-<section class="section" id="platform">
+<!-- ============================= EXPERT PODCAST ============================= -->
+<section class="section" id="podcast">
   <div class="container">
     <div class="section-head" data-reveal style="margin-bottom:48px">
-      <h2 class="h2" style="margin-top:12px">A platform your IT team will approve of</h2>
+      <h2 class="h2" style="margin-top:12px">Expert Podcast Conversations</h2>
+      <p class="lead">Explore conversations and expert perspectives that deep-dive into this solution’s use cases, challenges, and real-world impact.</p>
     </div>
-    <div class="cap-grid">
-      <div class="cap-list" data-reveal>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>Any content type</h4><p>Images, video, HTML5, live web, RSS and data feeds.</p></div></div>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>Open REST APIs</h4><p>Automate publishing and integrate with your stack.</p></div></div>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>Multi-tenant orgs</h4><p>Separate brands, regions and franchisees cleanly.</p></div></div>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>SSO &amp; audit logs</h4><p>SAML/OAuth sign-in with full activity history.</p></div></div>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>Emergency override</h4><p>Instantly push alerts to every screen network-wide.</p></div></div>
-        <div class="cap-item"><div class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div><h4>Remote device control</h4><p>Reboot, update and troubleshoot screens remotely.</p></div></div>
-      </div>
-      <div class="cap-visual" data-reveal data-delay="1">
-        <div class="cap-bar"><div class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 018-8M20 12a8 8 0 01-8 8"/><circle cx="12" cy="12" r="2.5"/></svg></div><div><b>Content delivery</b><small>Edge-cached on the Jio network</small></div><div class="meter"><i style="width:92%"></i></div></div>
-        <div class="cap-bar"><div class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-4 8-8 10-4-2-8-5-8-10V6z"/></svg></div><div><b>Security posture</b><small>Encrypted end-to-end</small></div><div class="meter"><i style="width:98%"></i></div></div>
-        <div class="cap-bar"><div class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><div><b>Network uptime</b><small>99.9% measured this quarter</small></div><div class="meter"><i style="width:99%"></i></div></div>
-      </div>
+    <div class="podcast" data-reveal data-delay="1">
+      <a class="podcast-video" id="podcastVideo" href="https://www.youtube.com/watch?v=3_f7tkf4qfg" target="_blank" rel="noopener" data-yt="3_f7tkf4qfg" aria-label="Play video: Ep 19: Signs of the Future.">
+        <img src="https://i.ytimg.com/vi/3_f7tkf4qfg/maxresdefault.jpg" alt="Ep 19: Signs of the Future. — JioThings podcast" width="1280" height="720" loading="lazy" />
+        <span class="podcast-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg></span>
+        <span class="podcast-cap"><b>Ep 19: Signs of the Future.</b><small>JioThings podcast</small></span>
+      </a>
+    </div>
+    <div class="podcast-actions" data-reveal data-delay="2">
+      <a class="btn btn--primary btn--lg" href="https://youtube.com/playlist?list=PL82mUHb1YctNvRh5Fh27gKiOb8H52lQhC&amp;si=yvgXunulJO4MYlK6" target="_blank" rel="noopener">Explore more</a>
     </div>
   </div>
 </section>
@@ -974,6 +970,23 @@
   /* ---- Duplicate marquee content for seamless loop ---- */
   var mq=document.getElementById('marquee');
   if(mq){mq.innerHTML+=mq.innerHTML;}
+
+  /* ---- Podcast video: load the YouTube player on click ---- */
+  var pv=document.getElementById('podcastVideo');
+  if(pv){
+    pv.addEventListener('click',function(e){
+      if(pv.classList.contains('playing'))return;
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube.com/embed/'+pv.getAttribute('data-yt')+'?autoplay=1&rel=0';
+      f.title='Ep 19: Signs of the Future.';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.referrerPolicy='strict-origin-when-cross-origin';
+      f.allowFullscreen=true;
+      pv.classList.add('playing');pv.removeAttribute('href');pv.setAttribute('role','presentation');
+      pv.appendChild(f);
+    });
+  }
 
   /* ---- Reveal on scroll ---- */
   var reveals=document.querySelectorAll('[data-reveal]');
