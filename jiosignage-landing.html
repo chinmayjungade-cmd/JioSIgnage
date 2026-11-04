@@ -281,11 +281,12 @@
   .itab:hover{color:var(--grey-100)}
   .itab.active{color:var(--grey-100)}
   .itab.active::before,.itab.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-6px;height:3px;border-radius:250px}
-  .itab.active::before{background:var(--grey-40)}
-  .itab.active::after{background:var(--grey-100);transform-origin:left;transform:scaleX(var(--p,1))}
+  .itab.active::before{background:var(--primary-20)}
+  .itab.active::after{background:var(--primary-50);transform-origin:left;transform:scaleX(var(--p,1))}
   .itab-panel{display:none;text-align:center}
-  .itab-panel.active{display:block;animation:itabFade .45s ease}
-  @keyframes itabFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .itab-panel.active{display:block}
+  .itab-body{position:relative;overflow:hidden;padding:0 28px 36px;margin:0 -28px -36px}
+  .itab-panel.is-leaving{display:block;position:absolute;top:0;left:28px;right:28px}
   .itab-figure{aspect-ratio:16/9;max-width:760px;margin:0 auto;border-radius:var(--r-card);overflow:hidden;background:var(--grey-40);box-shadow:var(--shadow-md)}
   .itab-figure img{width:100%;height:100%;object-fit:cover;display:block}
   .itab-name{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.02em;color:var(--grey-100);margin-top:28px}
@@ -1151,14 +1152,31 @@
     var itabs=[].slice.call(document.querySelectorAll('.itab-bar .itab'));
     var ipanels=document.querySelectorAll('.itab-body .itab-panel');
     if(!itabs.length) return;
-    var box=document.querySelector('.itabs'), HOLD=5000, elapsed=0, last=null, hovering=false, focused=false, inView=false, cur=0;
-    function show(i){
-      cur=i; var ind=itabs[i].getAttribute('data-ind');
+    var box=document.querySelector('.itabs'), HOLD=5000, elapsed=0, last=null, hovering=false, focused=false, inView=false, cur=-1;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var canSlide=!!Element.prototype.animate&&!reduce, SLIDE=650, EASE='cubic-bezier(.65,0,.25,1)', leaving=[];
+    function panelFor(i){var ind=itabs[i].getAttribute('data-ind');for(var k=0;k<ipanels.length;k++)if(ipanels[k].getAttribute('data-ind')===ind)return ipanels[k];}
+    function show(i,dir){
+      if(i===cur) return;
+      var from=cur>=0?panelFor(cur):null, to=panelFor(i);
       itabs.forEach(function(x,k){var on=k===i;x.classList.toggle('active',on);x.setAttribute('aria-selected',on?'true':'false');x.style.setProperty('--p',0);});
-      ipanels.forEach(function(p){p.classList.toggle('active',p.getAttribute('data-ind')===ind);});
-      elapsed=0;
+      leaving.forEach(function(a){a.finish();}); leaving=[];
+      ipanels.forEach(function(p){ if(p!==to&&p!==from) p.classList.remove('active','is-leaving'); });
+      if(from&&canSlide){
+        var d=(dir||(i>cur?1:-1))>0?1:-1;
+        from.classList.add('is-leaving'); from.classList.remove('active');
+        to.classList.add('active');
+        var out=from.animate([{transform:'translateX(0)',opacity:1},{transform:'translateX('+(-d*100)+'%)',opacity:0}],{duration:SLIDE,easing:EASE});
+        var inn=to.animate([{transform:'translateX('+(d*100)+'%)',opacity:0},{transform:'translateX(0)',opacity:1}],{duration:SLIDE,easing:EASE});
+        out.onfinish=function(){from.classList.remove('is-leaving');};
+        leaving=[out,inn];
+      } else {
+        if(from) from.classList.remove('active');
+        to.classList.add('active');
+      }
+      cur=i; elapsed=0;
     }
-    itabs.forEach(function(t,i){ t.addEventListener('click',function(){show(i);}); });
+    itabs.forEach(function(t,i){ t.addEventListener('click',function(){show(i);elapsed=0;}); });
     box.addEventListener('pointerenter',function(){hovering=true;});
     box.addEventListener('pointerleave',function(){hovering=false;});
     box.addEventListener('focusin',function(e){focused=!!(e.target.matches&&e.target.matches(':focus-visible'));});
@@ -1172,11 +1190,12 @@
       if(inView&&!hovering&&!focused&&!document.hidden){
         elapsed+=dt;
         itabs[cur].style.setProperty('--p',Math.min(elapsed/HOLD,1).toFixed(3));
-        if(elapsed>=HOLD) show((cur+1)%itabs.length);
+        if(elapsed>=HOLD) show((cur+1)%itabs.length,1);
       }
       requestAnimationFrame(tick);
     }
-    show(Math.max(0,itabs.findIndex(function(t){return t.classList.contains('active');})));
+    var first=Math.max(0,itabs.findIndex(function(t){return t.classList.contains('active');}));
+    ipanels.forEach(function(p){p.classList.remove('active');}); show(first);
     requestAnimationFrame(tick);
   })();
 })();
