@@ -484,6 +484,20 @@
   .deep-visual{border-radius:var(--r-card);padding:30px;min-height:300px;border:1px solid var(--grey-40);background:#fff;box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:14px;justify-content:center}
   .deep-visual--shot{padding:0;min-height:0;overflow:hidden;display:block}
   .deep-visual--shot img{display:block;width:100%;height:auto}
+  /* Hover: 3D tilt toward the cursor, lift, slow zoom and a moving glare.
+     Uses the individual rotate/translate properties so it never fights the scroll-reveal transform. */
+  .deep-row{perspective:1400px}
+  .deep-visual--shot{position:relative;isolation:isolate}
+  .deep-visual--shot[data-reveal]{transition:opacity .7s ease,transform .7s ease,rotate .55s cubic-bezier(.2,.7,.2,1),translate .55s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,border-color .45s ease}
+  .deep-visual--shot.is-tilt{transition:opacity .7s ease,transform .7s ease,rotate .12s linear,translate .4s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,border-color .45s ease}
+  .deep-visual--shot img{transition:scale .8s cubic-bezier(.2,.7,.2,1)}
+  .deep-visual--shot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s ease;
+    background:radial-gradient(520px circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.28),rgba(255,255,255,0) 55%)}
+  @media (hover:hover) and (prefers-reduced-motion:no-preference){
+    .deep-visual--shot:hover{translate:0 -6px;box-shadow:0 28px 64px rgba(0,0,40,.18),0 0 0 1px rgba(153,153,255,.45);border-color:var(--primary-30)}
+    .deep-visual--shot:hover img{scale:1.04}
+    .deep-visual--shot:hover::after{opacity:1}
+  }
   .dv-top{display:flex;align-items:center;gap:12px}
   .dv-ic{width:48px;height:48px;flex:none;border-radius:14px;display:grid;place-items:center}
   .dv-ic svg{width:26px;height:26px}
@@ -744,6 +758,27 @@
   /* ---- Duplicate marquee content for seamless loop ---- */
   var mq=document.getElementById('marquee');
   if(mq){mq.innerHTML+=mq.innerHTML;}
+
+  /* ---- Key-feature screenshots: tilt toward the cursor on hover ---- */
+  (function(){
+    var fine=window.matchMedia&&window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!fine||reduce)return;
+    document.querySelectorAll('.deep-visual--shot').forEach(function(card){
+      card.addEventListener('pointermove',function(e){
+        var r=card.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        var ax=(0.5-py)*10, ay=(px-0.5)*12, ang=Math.sqrt(ax*ax+ay*ay);
+        card.classList.add('is-tilt');
+        card.style.rotate=ang<0.05?'':(ax.toFixed(3)+' '+ay.toFixed(3)+' 0 '+ang.toFixed(2)+'deg');
+        card.style.setProperty('--gx',(px*100).toFixed(1)+'%');
+        card.style.setProperty('--gy',(py*100).toFixed(1)+'%');
+      });
+      card.addEventListener('pointerleave',function(){
+        card.classList.remove('is-tilt'); card.style.rotate='';
+      });
+    });
+  })();
 
   /* ---- Reveal on scroll ---- */
   var reveals=document.querySelectorAll('[data-reveal]');
