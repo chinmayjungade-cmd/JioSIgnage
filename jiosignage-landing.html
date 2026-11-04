@@ -280,7 +280,9 @@
   .itab{background:none;border:none;font-family:inherit;font-size:18px;font-weight:700;letter-spacing:-.02em;color:var(--grey-80);padding:8px 14px;position:relative;cursor:pointer;transition:color .2s}
   .itab:hover{color:var(--grey-100)}
   .itab.active{color:var(--grey-100)}
-  .itab.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-6px;height:3px;background:var(--grey-100);border-radius:250px}
+  .itab.active::before,.itab.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-6px;height:3px;border-radius:250px}
+  .itab.active::before{background:var(--grey-40)}
+  .itab.active::after{background:var(--grey-100);transform-origin:left;transform:scaleX(var(--p,1))}
   .itab-panel{display:none;text-align:center}
   .itab-panel.active{display:block;animation:itabFade .45s ease}
   @keyframes itabFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -1144,16 +1146,39 @@
     restart();
   }
 
-  /* ---- Industries tabs ---- */
-  var itabs=document.querySelectorAll('.itab-bar .itab');
-  var ipanels=document.querySelectorAll('.itab-body .itab-panel');
-  itabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      var ind=t.getAttribute('data-ind');
-      itabs.forEach(function(x){var on=x===t;x.classList.toggle('active',on);x.setAttribute('aria-selected',on?'true':'false');});
+  /* ---- Industries tabs: click to switch, auto-advance every 5s ---- */
+  (function(){
+    var itabs=[].slice.call(document.querySelectorAll('.itab-bar .itab'));
+    var ipanels=document.querySelectorAll('.itab-body .itab-panel');
+    if(!itabs.length) return;
+    var box=document.querySelector('.itabs'), HOLD=5000, elapsed=0, last=null, hovering=false, focused=false, inView=false, cur=0;
+    function show(i){
+      cur=i; var ind=itabs[i].getAttribute('data-ind');
+      itabs.forEach(function(x,k){var on=k===i;x.classList.toggle('active',on);x.setAttribute('aria-selected',on?'true':'false');x.style.setProperty('--p',0);});
       ipanels.forEach(function(p){p.classList.toggle('active',p.getAttribute('data-ind')===ind);});
-    });
-  });
+      elapsed=0;
+    }
+    itabs.forEach(function(t,i){ t.addEventListener('click',function(){show(i);}); });
+    box.addEventListener('pointerenter',function(){hovering=true;});
+    box.addEventListener('pointerleave',function(){hovering=false;});
+    box.addEventListener('focusin',function(e){focused=!!(e.target.matches&&e.target.matches(':focus-visible'));});
+    box.addEventListener('focusout',function(){focused=false;});
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){inView=es[0].isIntersecting;},{threshold:0.35}).observe(box);
+    } else inView=true;
+    function tick(ts){
+      if(last===null) last=ts;
+      var dt=ts-last; last=ts;
+      if(inView&&!hovering&&!focused&&!document.hidden){
+        elapsed+=dt;
+        itabs[cur].style.setProperty('--p',Math.min(elapsed/HOLD,1).toFixed(3));
+        if(elapsed>=HOLD) show((cur+1)%itabs.length);
+      }
+      requestAnimationFrame(tick);
+    }
+    show(Math.max(0,itabs.findIndex(function(t){return t.classList.contains('active');})));
+    requestAnimationFrame(tick);
+  })();
 })();
 </script>
 </body>
