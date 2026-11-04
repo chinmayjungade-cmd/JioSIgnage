@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Platforms — JioSignage</title>
-<meta name="description" content="One platform, four ecosystems. JioSignage runs on Android, Windows, Samsung SSSP and LG webOS — managed centrally from one portal. Compare platform support and specs." />
+<meta name="description" content="One platform, six ecosystems. JioSignage runs on Android, Tizen, Windows, iOS, BrightSign and webOS — managed centrally from one portal. Compare platform support." />
 <link rel="icon" href="images/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -516,7 +516,7 @@
   }
 
   /* ---------- Platforms page specifics ---------- */
-  .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .plat-card{background:#fff;border:1px solid var(--grey-40);border-radius:var(--r-card);padding:26px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
   .plat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
   .plat-card h3{font-size:19px;margin-bottom:8px}
@@ -587,12 +587,12 @@
 <!-- ============================= PLATFORMS HERO ============================= -->
 <section class="fhero">
   <div class="container">
-    <h1 class="display" data-reveal data-delay="1">One platform, <span class="accent">four ecosystems</span></h1>
-    <p class="lead" data-reveal data-delay="2">JioSignage delivers a consistent, centralised management experience across Android, Windows, Samsung SSSP and LG webOS — without needing separate tools.</p>
+    <h1 class="display" data-reveal data-delay="1">One platform, <span class="accent">six ecosystems</span></h1>
+    <p class="lead" data-reveal data-delay="2">JioSignage delivers a consistent, centralised management experience across Android, Tizen, Windows, iOS, BrightSign and webOS — without needing separate tools.</p>
   </div>
 </section>
 
-<!-- ============================= FOUR PLATFORM CARDS ============================= -->
+<!-- ============================= PLATFORM CARDS ============================= -->
 <section class="section" style="padding-top:16px">
   <div class="container">
     <div class="plat-grid">
@@ -606,26 +606,42 @@
       </article>
       <article class="plat-card" data-reveal data-delay="2">
         <div class="plat-badge">
+          <img src="images/platforms/samsung.png" alt="Samsung Smart Signage Platform logo" loading="lazy" onerror="this.remove()" />
+          <span class="plat-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        </div>
+        <h3>Tizen</h3>
+        <p>Native app for Samsung displays on the Smart Signage Platform (Tizen). No external media player needed.</p>
+      </article>
+      <article class="plat-card" data-reveal data-delay="3">
+        <div class="plat-badge">
           <img src="images/platforms/windows.png" alt="Windows logo" loading="lazy" onerror="this.remove()" />
           <span class="plat-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg></span>
         </div>
         <h3>Windows</h3>
         <p>Full-featured Windows client for PCs, NUCs and dedicated display boxes running Windows 10/11.</p>
       </article>
+      <article class="plat-card" data-reveal data-delay="1">
+        <div class="plat-badge">
+          <img src="images/platforms/apple.png" alt="Apple logo" loading="lazy" onerror="this.remove()" />
+          <span class="plat-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+        </div>
+        <h3>iOS</h3>
+        <p>Bring iPads and iPhones into the same network for counter-top screens, kiosks and on-the-go use.</p>
+      </article>
+      <article class="plat-card" data-reveal data-delay="2">
+        <div class="plat-badge">
+          <img src="images/platforms/brightsign.png" alt="BrightSign logo" loading="lazy" onerror="this.remove()" />
+          <span class="plat-ic tint-sparkle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M7 12h.01M11 12h6"/></svg></span>
+        </div>
+        <h3>BrightSign</h3>
+        <p>Purpose-built commercial media players for always-on signage on any HDMI display.</p>
+      </article>
       <article class="plat-card" data-reveal data-delay="3">
         <div class="plat-badge">
-          <img src="images/platforms/samsung.png" alt="Samsung logo" loading="lazy" onerror="this.remove()" />
-          <span class="plat-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-        </div>
-        <h3>Samsung SSSP</h3>
-        <p>Native app for the Samsung Smart Signage Platform. No external media player needed.</p>
-      </article>
-      <article class="plat-card" data-reveal data-delay="4">
-        <div class="plat-badge">
-          <img src="images/platforms/lg.png" alt="LG logo" loading="lazy" onerror="this.remove()" />
+          <img src="images/platforms/lg.png" alt="LG webOS logo" loading="lazy" onerror="this.remove()" />
           <span class="plat-ic tint-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
         </div>
-        <h3>LG webOS</h3>
+        <h3>webOS</h3>
         <p>Runs natively on LG commercial displays via the webOS signage platform.</p>
       </article>
     </div>
@@ -665,6 +681,31 @@
       </div>
     </div>
 
+    <!-- Tizen -->
+    <div class="deep-row">
+      <div class="deep-text" data-reveal>
+        <h3>Tizen</h3>
+        <p>JioSignage runs natively on Samsung's Smart Signage Platform (SSSP), embedded directly into Samsung commercial displays. No external media player, cables or boxes required — just the screen itself.</p>
+        <ul class="deep-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Native app — no external media player needed</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Certified across the Samsung commercial display lineup</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Supports Samsung's commercial display management features</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Reduced total cost of ownership</li>
+        </ul>
+      </div>
+      <div class="deep-visual" data-reveal data-delay="1">
+        <div class="dv-top"><div class="dv-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><b>Tizen</b><small>Samsung SSSP · Native</small></div></div>
+        <div class="spec-list">
+          <div class="spec-row"><span class="k">Platform</span><span class="v">SSSP (Tizen)</span></div>
+          <div class="spec-row"><span class="k">SSSP versions</span><span class="v">3, 4, 5, 6, 6.5+</span></div>
+          <div class="spec-row"><span class="k">External player</span><span class="v">Not required</span></div>
+          <div class="spec-row"><span class="k">Offline Store &amp; Play</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Yes</span></span></div>
+          <div class="spec-row"><span class="k">Auto boot on power-on</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Yes</span></span></div>
+          <div class="spec-row"><span class="k">Remote management</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Full</span></span></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Windows -->
     <div class="deep-row">
       <div class="deep-text" data-reveal>
@@ -690,36 +731,56 @@
       </div>
     </div>
 
-    <!-- Samsung SSSP -->
+    <!-- iOS -->
     <div class="deep-row">
       <div class="deep-text" data-reveal>
-        <h3>Samsung SSSP</h3>
-        <p>JioSignage runs natively on Samsung's Smart Signage Platform (SSSP), embedded directly into Samsung commercial displays. No external media player, cables or boxes required — just the screen itself.</p>
+        <h3>iOS</h3>
+        <p>JioSignage extends your signage network to Apple devices, so iPads and iPhones can sit alongside your other screens — ideal for counter-top displays, compact kiosks and teams on the move.</p>
         <ul class="deep-list">
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Native app — no external media player needed</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Certified across the Samsung commercial display lineup</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Supports Samsung's commercial display management features</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Reduced total cost of ownership</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Manage alongside every other platform from one dashboard</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Great for counter-top and kiosk-style iPads</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Same scheduling and emergency-alert controls</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Consistent playback across your device mix</li>
         </ul>
       </div>
       <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><b>Samsung SSSP</b><small>Native · Tizen</small></div></div>
+        <div class="dv-top"><div class="dv-ic tint-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><div><b>iOS</b><small>Apple · iPad &amp; iPhone</small></div></div>
         <div class="spec-list">
-          <div class="spec-row"><span class="k">Platform</span><span class="v">SSSP (Tizen)</span></div>
-          <div class="spec-row"><span class="k">SSSP versions</span><span class="v">3, 4, 5, 6, 6.5+</span></div>
-          <div class="spec-row"><span class="k">External player</span><span class="v">Not required</span></div>
-          <div class="spec-row"><span class="k">Offline Store &amp; Play</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Yes</span></span></div>
-          <div class="spec-row"><span class="k">Auto boot on power-on</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Yes</span></span></div>
-          <div class="spec-row"><span class="k">Remote management</span><span class="v"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Full</span></span></div>
+          <div class="spec-row"><span class="k">Platform</span><span class="v">iOS · iPadOS</span></div>
+          <div class="spec-row"><span class="k">Device types</span><span class="v">iPad · iPhone</span></div>
+          <div class="spec-row"><span class="k">Managed from</span><span class="v">JioSignage portal</span></div>
         </div>
       </div>
     </div>
 
-    <!-- LG webOS -->
+    <!-- BrightSign -->
     <div class="deep-row">
       <div class="deep-text" data-reveal>
-        <h3>LG webOS</h3>
-        <p>JioSignage is available as a native webOS app for LG commercial displays. Like Samsung SSSP, it eliminates the need for an external media player, running entirely within the display's built-in operating system.</p>
+        <h3>BrightSign</h3>
+        <p>BrightSign players are purpose-built commercial media players designed for always-on signage. Connect one to any HDMI display and manage it from JioSignage with the rest of your network.</p>
+        <ul class="deep-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Purpose-built commercial media players</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Plugs into any HDMI-connected display</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Designed for always-on, 24/7 playback</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Manage alongside other platforms from one dashboard</li>
+        </ul>
+      </div>
+      <div class="deep-visual" data-reveal data-delay="1">
+        <div class="dv-top"><div class="dv-ic tint-sparkle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M7 12h.01M11 12h6"/></svg></div><div><b>BrightSign</b><small>Commercial media player</small></div></div>
+        <div class="spec-list">
+          <div class="spec-row"><span class="k">Platform</span><span class="v">BrightSign OS</span></div>
+          <div class="spec-row"><span class="k">Device types</span><span class="v">BrightSign media players</span></div>
+          <div class="spec-row"><span class="k">Display connection</span><span class="v">HDMI</span></div>
+          <div class="spec-row"><span class="k">Managed from</span><span class="v">JioSignage portal</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- webOS -->
+    <div class="deep-row">
+      <div class="deep-text" data-reveal>
+        <h3>webOS</h3>
+        <p>JioSignage is available as a native webOS app for LG commercial displays. Like Tizen, it eliminates the need for an external media player, running entirely within the display's built-in operating system.</p>
         <ul class="deep-list">
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Native webOS app — no extra hardware</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Integrates with LG's SuperSign ecosystem</li>
@@ -728,7 +789,7 @@
         </ul>
       </div>
       <div class="deep-visual" data-reveal data-delay="1">
-        <div class="dv-top"><div class="dv-ic tint-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><div><b>LG webOS</b><small>Native · Signage</small></div></div>
+        <div class="dv-top"><div class="dv-ic tint-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><div><b>webOS</b><small>LG · Native signage</small></div></div>
         <div class="spec-list">
           <div class="spec-row"><span class="k">Platform</span><span class="v">webOS Signage</span></div>
           <div class="spec-row"><span class="k">webOS versions</span><span class="v">3.0+</span></div>
@@ -752,17 +813,17 @@
     <div class="cmp-wrap" data-reveal>
       <table class="cmp">
         <thead>
-          <tr><th>Feature</th><th>Android</th><th>Windows</th><th>Samsung</th><th>LG webOS</th></tr>
+          <tr><th>Feature</th><th>Android</th><th>Tizen</th><th>Windows</th><th>iOS</th><th>BrightSign</th><th>webOS</th></tr>
         </thead>
         <tbody>
-          <tr><td>Content playback</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>Store &amp; Play (offline)</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>Smart Playlist / scheduling</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>Emergency alerts</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>4K content support</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>No external player needed</td><td><span class="dep">Depends</span></td><td><span class="dep">Depends</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>JioSaavn integration</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
-          <tr><td>Portrait mode</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>Content playback</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>Store &amp; Play (offline)</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="dep">Ask us</span></td><td><span class="dep">Ask us</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>Smart Playlist / scheduling</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>Emergency alerts</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>4K content support</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="dep">Ask us</span></td><td><span class="dep">Ask us</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>No external player needed</td><td><span class="dep">Depends</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="dep">Depends</span></td><td><span class="dep">Ask us</span></td><td><span class="dep">Ask us</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>JioSaavn integration</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="dep">Ask us</span></td><td><span class="dep">Ask us</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
+          <tr><td>Portrait mode</td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td><td><span class="dep">Ask us</span></td><td><span class="dep">Ask us</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span></td></tr>
         </tbody>
       </table>
     </div>
@@ -774,7 +835,7 @@
   <div class="container">
     <div class="cta" data-reveal>
       <h2 class="h2">Run JioSignage on the screens you already have</h2>
-      <p>Bring your own Android, Windows, Samsung or LG hardware — and manage it all from one portal. Book a walkthrough with our team.</p>
+      <p>Bring your own Android, Tizen, Windows, iOS, BrightSign or webOS hardware — and manage it all from one portal. Book a walkthrough with our team.</p>
       <div class="cta-actions">
         <a class="btn btn--contrast btn--lg" href="book-a-demo.html">Book a demo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
