@@ -171,8 +171,9 @@
       radial-gradient(48% 55% at 88% 8%, rgba(53,53,243,.10), transparent 60%),
       radial-gradient(42% 50% at 4% 90%, rgba(30,123,116,.08), transparent 60%);
   }
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .hero .display{margin-top:22px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+  .hero .display{margin-top:22px;font-size:clamp(40px,5.2vw,68px)}
+  @media (min-width:1360px){.hero .stage{margin-right:-40px}}
   .hero .lead{margin:24px 0 0;max-width:540px}
   .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
   .hero-trust{display:flex;align-items:center;gap:16px;margin-top:40px;flex-wrap:wrap}
